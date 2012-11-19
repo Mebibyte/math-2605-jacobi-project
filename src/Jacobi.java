@@ -23,7 +23,7 @@ public class Jacobi {
 		double maxOff = -1;
 		for (int i = 0; i < 5; i++) {
 			for (int j = i; j < 5; j++) {
-				if (Math.abs(array[i][j]) > maxOff) {
+				if (i != j && Math.abs(array[i][j]) > maxOff) {
 					maxI = i;
 					maxJ = j;
 					maxOff = Math.abs(array[i][j]);
@@ -44,6 +44,26 @@ public class Jacobi {
 		System.out.println("U:");
 		for (int x = 0; x < 2; x++) {
 			System.out.println(Arrays.toString(U.getArray()[x]));
+		}
+		System.out.println("D:");
+		Matrix D = A.eig().getD();
+		for (int x = 0; x < 2; x++) {
+			System.out.println(Arrays.toString(D.getArray()[x]));
+		}
+		Matrix G = new Matrix(new double[][]{{1, 0, 0, 0, 0}, {0, 1, 0, 0, 0}, {0, 0, 1, 0, 0}, {0, 0, 0, 1, 0}, {0, 0, 0, 0, 1}});
+		G.set(i, i, U.get(0, 0));
+		G.set(i, j, U.get(0, 1));
+		G.set(j, i, U.get(1, 0));
+		G.set(j, j, U.get(1, 1));
+		System.out.println("G: ");
+		for (int x = 0; x < 5; x++) {
+			System.out.println(Arrays.toString(G.getArray()[x]));
+		}
+		
+		Matrix B = G.transpose().times(new Matrix(array)).times(G);
+		System.out.println("New B: ");
+		for (int x = 0; x < 5; x++) {
+			System.out.println(Arrays.toString(B.getArray()[x]));
 		}
 	}
 	
