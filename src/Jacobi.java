@@ -63,8 +63,6 @@ public class Jacobi {
 		return array;
 	}
 	
-	
-	
     public static void main(String[] args) {
     	Jacobi jacobi = new Jacobi();
     	jacobi.randomize();
