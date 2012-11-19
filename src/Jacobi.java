@@ -7,7 +7,7 @@ public class Jacobi {
 	private double[][] array = new double[5][5];
 	private static final Random rand = new Random();
 	
-	private void randomize() {
+	public void randomize() {
 		for (int i = 0; i < 5; i++) {
 			for (int j = i; j < 5; j++) {
 				array[i][j] = rand.nextDouble() * 50;
@@ -18,7 +18,7 @@ public class Jacobi {
 		}
 	}
 	
-	private void findLargestOffDiagonal() {
+	public void findLargestOffDiagonal() {
 		int maxI = -1, maxJ = -1;
 		double maxOff = -1;
 		for (int i = 0; i < 5; i++) {
@@ -34,7 +34,7 @@ public class Jacobi {
 		diagonalizeTwoByTwo(maxI, maxJ);
 	}
 	
-	private void diagonalizeTwoByTwo(int i, int j) {
+	public void diagonalizeTwoByTwo(int i, int j) {
 		double array2[][] = {{array[i][i], array[i][j]}, {array[j][i], array[j][j]}};
 		for (int x = 0; x < 2; x++) {
 			System.out.println(Arrays.toString(array2[x]));
@@ -47,7 +47,7 @@ public class Jacobi {
 		}
 	}
 	
-	private double calculateOffset() {
+	public double calculateOffset() {
 		double ans = 0;
 		for (int i = 0; i < 5; i++) {
 			for (int j = 0; j < 5; j++) {
@@ -57,6 +57,10 @@ public class Jacobi {
 			}
 		}
 		return ans;
+	}
+	
+	public double[][] getArray() {
+		return array;
 	}
 	
 	
