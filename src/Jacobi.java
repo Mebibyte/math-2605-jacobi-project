@@ -10,12 +10,17 @@ public class Jacobi {
 	public void randomize() {
 		for (int i = 0; i < 5; i++) {
 			for (int j = i; j < 5; j++) {
-				array[i][j] = rand.nextDouble() * 50;
+				array[i][j] = roundToDecimals((rand.nextDouble() * 20) - 10, 2);
 			}
 			for (int j = 0; j < i; j++) {
 				array[i][j] = array[j][i];
 			}
 		}
+	}
+	
+	public static double roundToDecimals(double d, int c) {
+		int temp = (int)((d * Math.pow(10,c)));
+		return (((double)temp) / Math.pow(10,c));
 	}
 	
 	public void findLargestOffDiagonal() {

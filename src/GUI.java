@@ -1,9 +1,17 @@
-import javax.swing.*;
+import java.awt.Dimension;
+import java.awt.Font;
 
-import java.awt.*;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 
 public class GUI extends JFrame {
+	private static final long serialVersionUID = 1L;
+
 	public JTextField lbl00, lbl01, lbl02, lbl03, lbl04,
 		lbl10, lbl11, lbl12, lbl13, lbl14,
 		lbl20, lbl21, lbl22, lbl23, lbl24,
@@ -12,6 +20,8 @@ public class GUI extends JFrame {
 	
 	public JTextField[][] fields;
 	private JLabel lblMatrix, lblOffset;
+	
+	private static Jacobi jacobi;
 	
 	public GUI() {
 		setSize(new Dimension(565,500));
@@ -171,6 +181,18 @@ public class GUI extends JFrame {
 		lbl44.setColumns(10);
 		
 		JButton randomize = new JButton("Randomize");
+		randomize.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				jacobi.randomize();
+				double[][] arr = jacobi.getArray();
+				for (int i = 0; i < 5; i++) {
+					for (int j = 0; j < 5; j++) {
+						fields[i][j].setText(arr[i][j]+"");
+					}
+				}
+				lblOffset.setText("Offset: " + jacobi.calculateOffset());
+			}
+		});
 		randomize.setBounds(50, 315, 100, 30);
 		getContentPane().add(randomize);
 		
@@ -200,15 +222,15 @@ public class GUI extends JFrame {
 		GUI gui = new GUI();
 		gui.setVisible(true);
 		
-		Jacobi one = new Jacobi();
-		one.randomize();
-		double[][] arr = one.getArray();
+		jacobi = new Jacobi();
+		jacobi.randomize();
+		double[][] arr = jacobi.getArray();
 		for (int i = 0; i < 5; i++) {
 			for (int j = 0; j < 5; j++) {
 				gui.fields[i][j].setText(arr[i][j]+"");
 			}
 		}
-		gui.lblOffset.setText("Offset: " + one.calculateOffset());
+		gui.lblOffset.setText("Offset: " + jacobi.calculateOffset());
 		
 	}
 }
