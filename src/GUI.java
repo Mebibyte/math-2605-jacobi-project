@@ -184,19 +184,19 @@ public class GUI extends JFrame {
 		randomize.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				jacobi.randomize();
-				double[][] arr = jacobi.getArray();
-				for (int i = 0; i < 5; i++) {
-					for (int j = 0; j < 5; j++) {
-						fields[i][j].setText(arr[i][j]+"");
-					}
-				}
-				lblOffset.setText("Offset: " + jacobi.calculateOffset());
+				updateMatrixGUI();
 			}
 		});
 		randomize.setBounds(50, 315, 100, 30);
 		getContentPane().add(randomize);
 		
 		JButton step = new JButton("Step");
+		step.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				jacobi.findLargestOffDiagonal();
+				updateMatrixGUI();
+			}
+		});
 		step.setBounds(160, 315, 100, 30);
 		getContentPane().add(step);
 		
@@ -216,6 +216,16 @@ public class GUI extends JFrame {
 		fields = new JTextField[][] {{lbl00, lbl01, lbl02, lbl03, lbl04},
 				{lbl10, lbl11, lbl12, lbl13, lbl14}, {lbl20, lbl21, lbl22, lbl23, lbl24},
 				{lbl30, lbl31, lbl32, lbl33, lbl34}, {lbl40, lbl41, lbl42, lbl43, lbl44}};
+	}
+	
+	public void updateMatrixGUI() {
+		double[][] arr = jacobi.getArray();
+		for (int i = 0; i < 5; i++) {
+			for (int j = 0; j < 5; j++) {
+				fields[i][j].setText(arr[i][j]+"");
+			}
+		}
+		lblOffset.setText("Offset: " + jacobi.calculateOffset());
 	}
 	
 	public static void main(String[] args) {

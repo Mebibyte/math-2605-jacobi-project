@@ -70,6 +70,12 @@ public class Jacobi {
 		for (int x = 0; x < 5; x++) {
 			System.out.println(Arrays.toString(B.getArray()[x]));
 		}
+		array = B.getArray();
+		for(int i2 = 0; i2 < array.length; i2++) {
+			for(int j2 = 0; j2 < array[0].length; j2++) {
+				array[i2][j2] = roundToDecimals(array[i2][j2], 2);
+			}
+		}
 	}
 	
 	public double calculateOffset() {
