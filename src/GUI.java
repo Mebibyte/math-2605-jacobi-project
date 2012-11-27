@@ -266,6 +266,16 @@ public class GUI extends JFrame {
 		lblStep = new JLabel("Step: ");
 		lblStep.setBounds(310, 29, 115, 13);
 		getContentPane().add(lblStep);
+		
+		JButton btnReset = new JButton("Reset");
+		btnReset.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				panel.resetGraph();
+				updateMatrixGUI();
+			}
+		});
+		btnReset.setBounds(336, 363, 89, 23);
+		getContentPane().add(btnReset);
 		panel.setBackground(Color.WHITE);
 		
 		fields = new JTextField[][] {{lbl00, lbl01, lbl02, lbl03, lbl04},
@@ -295,6 +305,11 @@ public class GUI extends JFrame {
 			offs.add(null);
 		}
 		
+		public void resetGraph() {
+			offs.clear();
+			offs.add(null);
+		}
+
 		public void addOffset(int step, double off) {
 			if (step >= offs.size()) {
 				offs.add(step, new ArrayList<Double>());
