@@ -302,12 +302,20 @@ public class GUI extends JFrame {
 			offs.get(step).add(off);
 		}
 		
+		public double average(int step) {
+			double ans = 0;
+			for (int i = 0; i < offs.get(step).size(); i++) {
+				ans += offs.get(step).get(i);
+			}
+			return ans / offs.get(step).size();
+		}
+		
 		@Override
         public void paintComponent(Graphics g) {
             super.paintComponent(g);
             drawGrid(g);
             for (int i = 1; i < offs.size(); i++) {
-            	g.drawRect(20 + i, 25, 1, 1);
+            	g.drawRect(21 + (i * 5), getHeight() - (int)(average(i) >= getHeight() + 16 ? getHeight() : average(i) + 16), 1, 1);
             }
 		}
 		
