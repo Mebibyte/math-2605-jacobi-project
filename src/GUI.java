@@ -29,7 +29,7 @@ public class GUI extends JFrame {
 	private GraphPanel panel;
 	
 	private static Jacobi jacobi;
-	private JLabel lblStep;
+	private JLabel lblStep, lblRuns;
 	
 	private int steps;
 	
@@ -276,6 +276,10 @@ public class GUI extends JFrame {
 		});
 		btnReset.setBounds(336, 363, 89, 23);
 		getContentPane().add(btnReset);
+		
+		lblRuns = new JLabel("Runs: ");
+		lblRuns.setBounds(336, 338, 89, 14);
+		getContentPane().add(lblRuns);
 		panel.setBackground(Color.WHITE);
 		
 		fields = new JTextField[][] {{lbl00, lbl01, lbl02, lbl03, lbl04},
@@ -292,6 +296,7 @@ public class GUI extends JFrame {
 		}
 		lblOffset.setText("Offset: " + jacobi.calculateOffset());
 		lblStep.setText("Step: " + steps);
+		lblRuns.setText("Runs: " + panel.runs);
 		panel.repaint();
 	}
 	
@@ -299,6 +304,8 @@ public class GUI extends JFrame {
 		private static final long serialVersionUID = 1L;
 		
 		ArrayList<ArrayList<Double>> offs = new ArrayList<ArrayList<Double>>();
+		
+		public int runs;
 		
 		GraphPanel() {
 			super();
@@ -308,6 +315,7 @@ public class GUI extends JFrame {
 		public void resetGraph() {
 			offs.clear();
 			offs.add(null);
+			runs = 0;
 		}
 
 		public void addOffset(int step, double off) {
@@ -315,6 +323,7 @@ public class GUI extends JFrame {
 				offs.add(step, new ArrayList<Double>());
 			}
 			offs.get(step).add(off);
+			runs = offs.get(1).size();
 		}
 		
 		public double average(int step) {
@@ -330,7 +339,7 @@ public class GUI extends JFrame {
             super.paintComponent(g);
             drawGrid(g);
             for (int i = 1; i < offs.size(); i++) {
-            	g.drawRect(21 + (i * 5), getHeight() - (int)(average(i) >= getHeight() + 16 ? getHeight() : average(i) + 16), 1, 1);
+            	g.drawRect(21 + ((i - 1) * 10), getHeight() - 16 - (int)(average(i)/average(1) * (getHeight() - 16)), 1, 1);
             }
 		}
 		
