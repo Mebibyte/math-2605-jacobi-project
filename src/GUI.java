@@ -201,6 +201,14 @@ public class GUI extends JFrame {
 		getContentPane().add(step);
 		
 		JButton run = new JButton("Run");
+		run.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				while (jacobi.calculateOffset()!=0) {
+						jacobi.findLargestOffDiagonal();
+				}
+				updateMatrixGUI();
+			}
+		});
 		run.setBounds(270, 315, 100, 30);
 		getContentPane().add(run);
 		
@@ -233,13 +241,6 @@ public class GUI extends JFrame {
 		gui.setVisible(true);
 		
 		jacobi = new Jacobi();
-		jacobi.randomize();
-		double[][] arr = jacobi.getArray();
-		for (int i = 0; i < 5; i++) {
-			for (int j = 0; j < 5; j++) {
-				gui.fields[i][j].setText(arr[i][j]+"");
-			}
-		}
 		gui.lblOffset.setText("Offset: " + jacobi.calculateOffset());
 		
 	}
