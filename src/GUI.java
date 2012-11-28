@@ -35,7 +35,7 @@ public class GUI extends JFrame {
 	private JRadioButton rdbtnSorted, rdbtnUnsorted;
 
 	public GUI() {
-		setSize(new Dimension(565, 500));
+		setSize(new Dimension(440, 500));
 		setResizable(false);
 		setLocationRelativeTo(null);
 		setTitle("Jacobi Method");
@@ -225,15 +225,17 @@ public class GUI extends JFrame {
 		run.setBounds(215, 259, 85, 30);
 		run.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				while (jacobi.calculateOffset() != 0) {
-					if (rdbtnSorted.isSelected())
-						jacobi.findLargestOffDiagonal();
-					else
-						jacobi.findOffDiagonal();
-					steps++;
-					panel.addOffset(jacobi.calculateOffset());
+				if (jacobi.calculateOffset() != 0) {
+					while (jacobi.calculateOffset() != 0) {
+						if (rdbtnSorted.isSelected())
+							jacobi.findLargestOffDiagonal();
+						else
+							jacobi.findOffDiagonal();
+						steps++;
+						panel.addOffset(jacobi.calculateOffset());
+					}
+					updateMatrixGUI();
 				}
-				updateMatrixGUI();
 			}
 		});
 		run.setBounds(215, 259, 85, 30);
@@ -297,12 +299,12 @@ public class GUI extends JFrame {
 		GraphPanel() {
 			super();
 			setBackground(Color.WHITE);
-			offs.add(null);
+			offs.add(jacobi.calculateOffset());
 		}
 
 		public void resetGraph() {
 			offs.clear();
-			offs.add(null);
+			offs.add(jacobi.calculateOffset());
 		}
 
 		public void addOffset(double off) {
@@ -315,29 +317,31 @@ public class GUI extends JFrame {
 			drawGrid(g);
 			for (int i = 1; i < offs.size(); i++) {
 				System.out.println(Math.log(offs.get(i)));
-				g.drawRect(26 + ((i - 1) * 10),
-						getHeight() - (int) (Math.log(offs.get(i))), 1, 1);
+				g.drawRect(26 + (int) ((getWidth() - 26) / (steps * 1.0) * i),
+						(getHeight() - 25) - (int) (((getHeight() - 25) / Math.log(offs.get(1))) * Math.log(offs.get(i))),
+						1, 1);
 			}
+			g.drawLine(26, 0, getWidth(), getHeight() - 16);
 		}
 
 		private void drawGrid(Graphics g) {
 			g.drawRect(0, 0, getWidth() - 1, getHeight() - 1);
 			g.drawString("ln(off)", 2, getHeight() - 4);
 			g.drawString("Step", getWidth() - 26, getHeight() - 4);
-			g.drawString((offs.size() > 1 ? offs.get(1).intValue() : 0) + "",
-					2, 12);
-			g.drawString("0", 10, getHeight() - 20);
+			g.drawString((offs.size() > 1 ? (int) Math.log(offs.get(1)) : 0)
+					+ "", 2, 12);
+			g.drawString((offs.size() > 1 && offs.get(offs.size() - 1) > 0) ? (int) Math.log(offs.get(offs.size() - 1)) + "" : "-" + "\u221E"
+					, 2, getHeight() - 20);
 			g.drawLine(25, 0, 25, getHeight() - 15);
 			g.drawLine(25, getHeight() - 15, getWidth() - 1, getHeight() - 15);
 		}
 	}
 
 	public static void main(String[] args) {
-		GUI gui = new GUI();
-		gui.setVisible(true);
-
 		jacobi = new Jacobi();
 		jacobi.randomize();
+		GUI gui = new GUI();
+		gui.setVisible(true);
 		gui.updateMatrixGUI();
 	}
 }
