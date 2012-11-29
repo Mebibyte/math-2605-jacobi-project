@@ -295,11 +295,14 @@ public class GUI extends JFrame {
 		private static final long serialVersionUID = 1L;
 
 		ArrayList<Double> offs = new ArrayList<Double>();
+		
+		private double xmin, ymin, xmax, ymax;
 
 		GraphPanel() {
 			super();
 			setBackground(Color.WHITE);
 			offs.add(jacobi.calculateOffset());
+			ymax = Math.log(offs.get(0));
 		}
 
 		public void resetGraph() {
@@ -309,6 +312,9 @@ public class GUI extends JFrame {
 
 		public void addOffset(double off) {
 			offs.add(off);
+			if (Math.log(off) < ymin) ymin = Math.log(off);
+			if (Math.log(off) > ymax) ymax = Math.log(off);
+			xmax++;
 		}
 
 		@Override
@@ -317,11 +323,12 @@ public class GUI extends JFrame {
 			drawGrid(g);
 			for (int i = 1; i < offs.size(); i++) {
 				System.out.println(Math.log(offs.get(i)));
-				g.drawRect(26 + (int) ((getWidth() - 26) / (steps * 1.0) * i),
+				g.drawRect(26 + (int) (((i - xmin) / (xmax - xmin)) * getWidth()), (getHeight() - 25) - (int) (((Math.log(offs.get(i)) - ymin) / (ymax - ymin)) * (getHeight() - 25)), 1, 1);
+				/*g.drawRect(26 + (int) ((getWidth() - 26) / (steps * 1.0) * i),
 						(getHeight() - 25) - (int) (((getHeight() - 25) / Math.log(offs.get(1))) * Math.log(offs.get(i))),
-						1, 1);
+						1, 1);*/
 			}
-			g.drawLine(26, 0, getWidth(), getHeight() - 16);
+			g.drawLine(26, (getHeight() - 25) - (int) ((((Math.log(9/10.0) + Math.log(offs.get(0))) - ymin) / (ymax - ymin)) * (getHeight() - 25)), getWidth(), getHeight() - 16);
 		}
 
 		private void drawGrid(Graphics g) {
