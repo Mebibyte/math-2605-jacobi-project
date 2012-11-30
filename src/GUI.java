@@ -43,150 +43,175 @@ public class GUI extends JFrame {
 		getContentPane().setLayout(null);
 
 		lbl00 = new JTextField();
+		lbl00.setEditable(false);
 		lbl00.setBounds(10, 53, 75, 25);
 		lbl00.setText("0,0");
 		getContentPane().add(lbl00);
 		lbl00.setColumns(10);
 
 		lbl01 = new JTextField();
+		lbl01.setEditable(false);
 		lbl01.setBounds(95, 53, 75, 25);
 		lbl01.setText("0,1");
 		getContentPane().add(lbl01);
 		lbl01.setColumns(10);
 
 		lbl02 = new JTextField();
+		lbl02.setEditable(false);
 		lbl02.setBounds(180, 53, 75, 25);
 		lbl02.setText("0,2");
 		getContentPane().add(lbl02);
 		lbl02.setColumns(10);
 
 		lbl03 = new JTextField();
+		lbl03.setEditable(false);
 		lbl03.setBounds(265, 53, 75, 25);
 		lbl03.setText("0,3");
 		getContentPane().add(lbl03);
 		lbl03.setColumns(10);
 
 		lbl04 = new JTextField();
+		lbl04.setEditable(false);
 		lbl04.setBounds(350, 53, 75, 25);
 		lbl04.setText("0,4");
 		getContentPane().add(lbl04);
 		lbl04.setColumns(10);
 
 		lbl10 = new JTextField();
+		lbl10.setEditable(false);
 		lbl10.setBounds(10, 88, 75, 25);
 		lbl10.setText("1,0");
 		getContentPane().add(lbl10);
 		lbl10.setColumns(10);
 
 		lbl11 = new JTextField();
+		lbl11.setEditable(false);
 		lbl11.setBounds(95, 88, 75, 25);
 		lbl11.setText("1,1");
 		getContentPane().add(lbl11);
 		lbl11.setColumns(10);
 
 		lbl12 = new JTextField();
+		lbl12.setEditable(false);
 		lbl12.setBounds(180, 88, 75, 25);
 		lbl12.setText("1,2");
 		getContentPane().add(lbl12);
 		lbl12.setColumns(10);
 
 		lbl13 = new JTextField();
+		lbl13.setEditable(false);
 		lbl13.setBounds(265, 88, 75, 25);
 		lbl13.setText("1,3");
 		getContentPane().add(lbl13);
 		lbl13.setColumns(10);
 
 		lbl14 = new JTextField();
+		lbl14.setEditable(false);
 		lbl14.setBounds(350, 88, 75, 25);
 		lbl14.setText("1,4");
 		getContentPane().add(lbl14);
 		lbl14.setColumns(10);
 
 		lbl20 = new JTextField();
+		lbl20.setEditable(false);
 		lbl20.setBounds(10, 124, 75, 25);
 		lbl20.setText("2,0");
 		getContentPane().add(lbl20);
 		lbl20.setColumns(10);
 
 		lbl21 = new JTextField();
+		lbl21.setEditable(false);
 		lbl21.setBounds(95, 124, 75, 25);
 		lbl21.setText("2,1");
 		getContentPane().add(lbl21);
 		lbl21.setColumns(10);
 
 		lbl22 = new JTextField();
+		lbl22.setEditable(false);
 		lbl22.setBounds(180, 124, 75, 25);
 		lbl22.setText("2,2");
 		getContentPane().add(lbl22);
 		lbl22.setColumns(10);
 
 		lbl23 = new JTextField();
+		lbl23.setEditable(false);
 		lbl23.setBounds(265, 124, 75, 25);
 		lbl23.setText("2,3");
 		getContentPane().add(lbl23);
 		lbl23.setColumns(10);
 
 		lbl24 = new JTextField();
+		lbl24.setEditable(false);
 		lbl24.setBounds(350, 124, 75, 25);
 		lbl24.setText("2,4");
 		getContentPane().add(lbl24);
 		lbl24.setColumns(10);
 
 		lbl30 = new JTextField();
+		lbl30.setEditable(false);
 		lbl30.setBounds(10, 160, 75, 25);
 		lbl30.setText("3,0");
 		getContentPane().add(lbl30);
 		lbl30.setColumns(10);
 
 		lbl31 = new JTextField();
+		lbl31.setEditable(false);
 		lbl31.setBounds(95, 160, 75, 25);
 		lbl31.setText("3,1");
 		getContentPane().add(lbl31);
 		lbl31.setColumns(10);
 
 		lbl32 = new JTextField();
+		lbl32.setEditable(false);
 		lbl32.setBounds(180, 160, 75, 25);
 		lbl32.setText("3,2");
 		getContentPane().add(lbl32);
 		lbl32.setColumns(10);
 
 		lbl33 = new JTextField();
+		lbl33.setEditable(false);
 		lbl33.setBounds(265, 160, 75, 25);
 		lbl33.setText("3,3");
 		getContentPane().add(lbl33);
 		lbl33.setColumns(10);
 
 		lbl34 = new JTextField();
+		lbl34.setEditable(false);
 		lbl34.setBounds(350, 160, 75, 25);
 		lbl34.setText("3,4");
 		getContentPane().add(lbl34);
 		lbl34.setColumns(10);
 
 		lbl40 = new JTextField();
+		lbl40.setEditable(false);
 		lbl40.setBounds(10, 196, 75, 25);
 		lbl40.setText("4,0");
 		getContentPane().add(lbl40);
 		lbl40.setColumns(10);
 
 		lbl41 = new JTextField();
+		lbl41.setEditable(false);
 		lbl41.setBounds(95, 196, 75, 25);
 		lbl41.setText("4,1");
 		getContentPane().add(lbl41);
 		lbl41.setColumns(10);
 
 		lbl42 = new JTextField();
+		lbl42.setEditable(false);
 		lbl42.setBounds(180, 196, 75, 25);
 		lbl42.setText("4,2");
 		getContentPane().add(lbl42);
 		lbl42.setColumns(10);
 
 		lbl43 = new JTextField();
+		lbl43.setEditable(false);
 		lbl43.setBounds(265, 196, 75, 25);
 		lbl43.setText("4,3");
 		getContentPane().add(lbl43);
 		lbl43.setColumns(10);
 
 		lbl44 = new JTextField();
+		lbl44.setEditable(false);
 		lbl44.setBounds(350, 196, 75, 25);
 		lbl44.setText("4,4");
 		getContentPane().add(lbl44);
@@ -296,7 +321,7 @@ public class GUI extends JFrame {
 
 		ArrayList<Double> offs = new ArrayList<Double>();
 		
-		private double xmin, ymin, xmax, ymax;
+		private double xmin, ymin, xmax = 1, ymax;
 
 		GraphPanel() {
 			super();
@@ -308,37 +333,39 @@ public class GUI extends JFrame {
 		public void resetGraph() {
 			offs.clear();
 			offs.add(jacobi.calculateOffset());
+			xmin = 0;
+			xmax = 1;
+			ymin = 0;
+			ymax = Math.log(offs.get(0));
 		}
 
 		public void addOffset(double off) {
-			offs.add(off);
-			if (Math.log(off) < ymin) ymin = Math.log(off);
-			if (Math.log(off) > ymax) ymax = Math.log(off);
-			xmax++;
+			if (off > 0) {
+				offs.add(off);
+				if (Math.log(off) < ymin) ymin = Math.log(off);
+				if (Math.log(off) > ymax) ymax = Math.log(off);
+				xmax++;
+			}
 		}
 
 		@Override
 		public void paintComponent(Graphics g) {
 			super.paintComponent(g);
 			drawGrid(g);
-			for (int i = 1; i < offs.size(); i++) {
-				System.out.println(Math.log(offs.get(i)));
-				g.drawRect(26 + (int) (((i - xmin) / (xmax - xmin)) * getWidth()), (getHeight() - 25) - (int) (((Math.log(offs.get(i)) - ymin) / (ymax - ymin)) * (getHeight() - 25)), 1, 1);
-				/*g.drawRect(26 + (int) ((getWidth() - 26) / (steps * 1.0) * i),
-						(getHeight() - 25) - (int) (((getHeight() - 25) / Math.log(offs.get(1))) * Math.log(offs.get(i))),
-						1, 1);*/
+			for (int i = 0; i < offs.size(); i++) {
+				g.drawRect(26 + (int) (((i - xmin) / (xmax - xmin)) * getWidth()),
+						(getHeight() - 15) - (int) (((Math.log(offs.get(i)) - ymin) / (ymax - ymin)) * (getHeight() - 15)),
+						1, 1);
 			}
-			g.drawLine(26, (getHeight() - 25) - (int) ((((Math.log(9/10.0) + Math.log(offs.get(0))) - ymin) / (ymax - ymin)) * (getHeight() - 25)), getWidth(), getHeight() - 16);
+			g.drawLine(26, 0, getWidth(), getHeight() - 15);
 		}
 
 		private void drawGrid(Graphics g) {
 			g.drawRect(0, 0, getWidth() - 1, getHeight() - 1);
 			g.drawString("ln(off)", 2, getHeight() - 4);
 			g.drawString("Step", getWidth() - 26, getHeight() - 4);
-			g.drawString((offs.size() > 1 ? (int) Math.log(offs.get(1)) : 0)
-					+ "", 2, 12);
-			g.drawString((offs.size() > 1 && offs.get(offs.size() - 1) > 0) ? (int) Math.log(offs.get(offs.size() - 1)) + "" : "-" + "\u221E"
-					, 2, getHeight() - 20);
+			g.drawString((int) Math.log(offs.get(0)) + "", 2, 12);
+			g.drawString((int) Math.log(offs.get(offs.size() - 1)) + "", 2, getHeight() - 20);
 			g.drawLine(25, 0, 25, getHeight() - 15);
 			g.drawLine(25, getHeight() - 15, getWidth() - 1, getHeight() - 15);
 		}
